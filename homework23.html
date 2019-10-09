@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!-- JQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script>
+        function Show(msg) {
+            //請改成jQuery
+            //document.getElementById('Label1').innerHTML += msg + "<br />";
+            //alert(msg);
+            
+            $('#Label1').html(msg);
+        }
+
+        var BmiObj = {
+            height: 0,
+            weight: 0,
+            GetBmi:function(){
+                var bmi = this.weight / ((this.height/100) * (this.height/100));
+                //alert(bmi);
+                return bmi;
+            }
+        };
+        
+
+        function Button1_Click() {
+            //請改成jQuery
+            //BmiObj.height = document.getElementById('txbHeight').value;
+            BmiObj.height = $('#txbHeight').val();
+            //alert(BmiObj.height);
+            //BmiObj.weight = document.getElementById('txbWeight').value;
+            BmiObj.weight = $('#txbWeight').val();
+            //alert(BmiObj.weight);
+            let bmi = BmiObj.GetBmi();
+            Show("BMI :" + bmi);
+        }
+    </script>
+
+</head>
+<div class="row" style="margin: 10px">
+    <div class="col-6">
+        <label>身高:</label>
+        <input id="txbHeight" class="form-control" type="text" placeholder="輸入身高" />
+        <label>體重:</label>
+        <input id="txbWeight" class="form-control" type="text" placeholder="輸入體重" />
+
+        <label id="Label1">結果:</label><br />
+        <input class="btn btn-primary" type="button" id="Button1" onclick="Button1_Click();" value="計算" />
+    </div>
+</div>
+
+<body>
+
+</body>
+
+</html>
